@@ -1,0 +1,172 @@
+.nc_modalOverlay {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: var(--nc-color-overlay);
+  backdrop-filter: blur(8px);
+}
+
+.nc_modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 720px;
+  display: flex;
+  flex-direction: column;
+  animation: 350ms ease-out 0s 1 fadeInModal normal forwards;
+}
+
+.nc_modalContent {
+  border-radius: 0px 0px 16px 16px;
+  overflow: hidden;
+  background-color: var(--nc-color-elements-2);
+  border: 1px solid var(--nc-color-elements-4);
+  border-top: none;
+}
+
+.nc_modalFooter {
+  z-index: -1;
+}
+
+.nc_overlayClosingAnimation {
+  animation: 250ms ease-out 0s 1 fadeOutOverlay normal forwards;
+}
+
+.nc_modalClosingAnimation {
+  animation: 250ms ease-out 0s 1 fadeOutModal normal forwards;
+}
+
+.nc_modalViewEntryTransition {
+  animation: 300ms ease-out 0s 1 viewsFadeIn normal forwards;
+}
+
+@media (max-width: 1080px) {
+  .nc_modalWrapper {
+    width: 636px;
+  }
+}
+
+@media (max-width: 960px) {
+  .nc_modalWrapper {
+    width: 540px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nc_modalOverlay {
+    animation: 250ms ease-out 0s 1 fadeInMobile normal forwards;
+    background-color: transparent;
+    backdrop-filter: blur(0);
+  }
+
+  .nc_modalWrapper {
+    top: unset;
+    left: unset;
+    bottom: -20px;
+    width: 100%;
+    transform-origin: 0 100%;
+    animation: 250ms ease-out 0s 1 slideIn normal forwards;
+  }
+
+  .nc_modalContent {
+    top: -20px;
+    position: relative;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .nc_modalClosingAnimation {
+    animation: 250ms ease-out 0s 1 fadeOutMobile normal forwards;
+  }
+
+  .nc_modalMobileSlideOutAnimation {
+    animation: 250ms ease-out 0s 1 slideOut normal forwards;
+  }
+}
+
+@keyframes fadeOutModal {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutOverlay {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes fadeInModal {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-45%);
+ }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+ }
+}
+
+@keyframes fadeInMobile {
+  0% {
+    background-color: transparent;
+    backdrop-filter: blur(0);
+  }
+  100% {
+    background-color: var(--nc-color-overlay);
+    backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes fadeOutMobile {
+  0% {
+    background-color: var(--nc-color-overlay);
+    backdrop-filter: blur(8px);
+  }
+  100% {
+    background-color: transparent;
+    backdrop-filter: blur(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes viewsFadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
