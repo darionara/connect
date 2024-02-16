@@ -1,0 +1,27 @@
+.nc_footer {
+  width: 100%;
+  background-color: var(--nc-color-elements-3);
+  color: var(--nc-color-elements-6);
+  border-radius: 0px 0px 16px 16px;
+  position: relative;
+  padding: 2rem 1rem 1rem;
+  top: -1rem;
+  border: 1px solid var(--nc-color-elements-4);
+ }
+
+.nc_footerText {
+  font-size: var(--nc-font-size-2);
+  font-family: var(--nc-font-family);
+}
+
+.nc_footerLink {
+  color: var(--nc-color-primary);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .nc_footer {
+    padding: 1rem;
+    top: -1.25rem;
+  }
+}
